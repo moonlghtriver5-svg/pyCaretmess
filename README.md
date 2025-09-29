@@ -40,6 +40,50 @@ rule-based planner logic, and a conversational interface. The repository contain
 Upload a dataset through the UI to generate automated EDA reports or trigger PyCaret
 model training. For scripted usage you can POST directly to `/chat` or `/actions`.
 
+
+## Running in GitHub Codespaces
+
+The repository works well inside a GitHub Codespace. After creating a Codespace for
+the repo, open a terminal and run:
+
+1. **Create and activate a virtual environment (recommended):**
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run automated checks:**
+
+   ```bash
+   pytest
+   ```
+
+4. **Launch the backend API (exposes port 8000):**
+
+   ```bash
+   uvicorn agent_service.main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+   When prompted, allow the Codespace to make the forwarded port public or private as
+   needed.
+
+5. **Launch the Streamlit frontend in a second terminal (port 8501):**
+
+   ```bash
+   streamlit run frontend/streamlit_app.py --server.address 0.0.0.0 --server.port 8501
+   ```
+
+GitHub Codespaces automatically forwards both ports; open the generated URLs from the
+Ports panel to interact with the API or the UI. Environment variables such as
+`OPENROUTER_API_KEY` can be added via the Codespace “Secrets” settings.
+
 ## Testing
 
 Run the unit tests with:

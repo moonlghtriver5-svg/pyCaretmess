@@ -1,7 +1,11 @@
 """Unit tests for the planner module."""
 
 from dataclasses import dataclass
+
+from datetime import UTC, datetime
+
 from datetime import datetime
+
 from pathlib import Path
 import sys
 
@@ -20,7 +24,14 @@ class DummyMessage:
 
 
 def _message(content: str) -> DummyMessage:
+    return DummyMessage(
+        role="user", content=content, timestamp=datetime.now(UTC)
+    )
+
+
+def _message(content: str) -> DummyMessage:
     return DummyMessage(role="user", content=content, timestamp=datetime.utcnow())
+
 
 
 def test_detects_eda_keywords():
