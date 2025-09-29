@@ -40,6 +40,7 @@ rule-based planner logic, and a conversational interface. The repository contain
 Upload a dataset through the UI to generate automated EDA reports or trigger PyCaret
 model training. For scripted usage you can POST directly to `/chat` or `/actions`.
 
+
 ## Running in GitHub Codespaces
 
 The repository works well inside a GitHub Codespace. After creating a Codespace for
