@@ -18,7 +18,6 @@ class DummyMessage:
     content: str
     timestamp: datetime
 
-
 def _message(content: str) -> DummyMessage:
     return DummyMessage(
         role="user", content=content, timestamp=datetime.now(UTC)
